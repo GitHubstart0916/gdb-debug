@@ -1,18 +1,25 @@
 #include "var.h"
 
 
-var::var(std::string name, int value) {
-    var::name = name;
-    var::value = value;
+var::var(std::string n, int v) {
+    name = n;
+    value = v;
 }
 
 int var::get_value() {
-    return var::value;
+    //printf("value addr: %p\n", &(this->value));
+    return value;
 }
 
-void var::set_value(int value) {
-    var::value = value;
+void var::set_value(int v) {
+    this->value = v;
+    //printf("value addr: %p\n", &(this->value));
 }
+
+/*var* var::clone() const {
+    return new var(*this);
+}*/
+
 
 var::~var() {
 

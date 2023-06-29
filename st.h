@@ -6,14 +6,19 @@
 #include "var.h"
 
 class st {
-    public:
-        std::vector<std::map<std::string, var>> single_table;
-        int error_check();
-};
 
-int st::error_check(void) {
-    return 0;
-}
+    private:
+        std::vector<std::map<std::string, var*>> single_table;
+    public:
+        st();
+        ~st();
+        int error_check();
+        void init_var(std::string name, int value);
+        void init_var(std::string name);
+        void set_var(std::string name, int value);
+        void print_var(std::string name);
+
+};
 
 
 #endif

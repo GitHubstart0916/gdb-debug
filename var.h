@@ -12,7 +12,8 @@ private:
 public:
     var(std::string, int value);
     int get_value();
-    void set_value(int value);
+    void set_value(int v);
+    //var* clone() const;
     ~var();
 };
 
