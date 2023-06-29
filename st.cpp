@@ -5,6 +5,7 @@ st::st() {
     single_table.clear();
     std::map<std::string, var*> main_table;
     single_table.push_back(main_table);
+    code = "#include<bits/stdc++.h>\n";
 }
 
 st::~st() {
@@ -59,4 +60,33 @@ void st::print_var(std::string name) {
     }
     
 }
+
+void st::def_main() {
+    code += "int main() {\n";
+}
+
+void st::end_main() {
+    code += "printf(\"code end\\n\");\n}";
+}
+
+void st::run() {
+    
+    const char* ret = code.c_str();
+    FILE* out = fopen("trans.cpp", "w");
+    fprintf(out, "%s", ret);
+    
+    #ifdef _WIN32
+        system("g++ trans.cpp -o trans");
+        system(".\\trans.exe");
+        system("del .\\trans.cpp");
+        system("del .\\trans.exe");
+    #else
+        system("g++ trans.cpp -o trans");
+        system("./trans.exe");
+        system("rm trans.cpp");
+        system("rm trans.exe");
+    #endif
+}
+
+
 
