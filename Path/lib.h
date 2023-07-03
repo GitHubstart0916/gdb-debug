@@ -1,5 +1,5 @@
-#include "SenMessage.h"
-
+//#include "SenMessage.h"
+#include<string>
 template<typename T> int ADR(T a);
 template<typename T> int SIZEOF(T a);
 /* int ADR(std::string);
