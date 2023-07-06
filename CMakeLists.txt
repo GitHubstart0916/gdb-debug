@@ -5,8 +5,8 @@ project(debug)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 11)
 
-add_library(loop SHARED loop.c)
-target_compile_options(loop PUBLIC -fPIC)
+add_library(mylib SHARED mylib.c)
+target_compile_options(mylib PUBLIC -fPIC -g)
 
 
 #add_executable(add add.c)

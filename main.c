@@ -6,7 +6,7 @@
 #include<unistd.h>
 
 void *loop(void* arg) {
-    void* handler = dlopen("./libloop.so", RTLD_LAZY);
+    void* handler = dlopen("./libmylib.so", RTLD_LAZY);
     if (handler == NULL)
     {
         printf("Error:%s\n", dlerror());
