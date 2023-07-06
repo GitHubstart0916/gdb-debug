@@ -2,11 +2,11 @@
 
 ### 介绍
 
-本项目对`dlopen`动态链接库同时使用GDB进行debug的可行性进行测试
+本项目对`dlopen`打开动态链接库同时使用GDB进行debug的可行性进行测试
 
 * 生成动态链接库并在`main.c`中调用
-* 调用方式为,通过`dlopen`和`dlsym`读取动态链接库`libmylib.so`并获取函数`run()`(从0开始计数,每`1s`加一,为方便测试未设置退出条件)
-* 测试结果位于`./doc/result.md`
+* 调用方式为,通过`dlopen`和`dlsym`读取动态链接库`libmylib.so`中的函数`run()`(此函数从0开始计数,每`1s`加一并输出当前计数的值,为方便测试未设置退出条件)
+* 测试结果分析位于`./doc/result.md`
 
 ### Build
 
@@ -30,7 +30,7 @@ make
 sudo sysctl -w kernel.yama.ptrace_scope=0
 ```
 
-因为默认值为1,查看文件`/etc/sysctl.d/10-ptrace.conf`可知
+其默认值为1,查看文件`/etc/sysctl.d/10-ptrace.conf`可知
 
 >A PTRACE scope of "0" is the more permissive mode.
 >
@@ -38,4 +38,4 @@ sudo sysctl -w kernel.yama.ptrace_scope=0
 >
 >"strace -f name-of-program" work, but gdb's "attach" and "strace -fp $PID" do not).
 
-因此可以修改为0.
+因此可以修改为0
