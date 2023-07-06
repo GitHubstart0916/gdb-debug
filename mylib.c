@@ -3,7 +3,7 @@
 #include<pthread.h>
 #include <unistd.h>
 
-void run() {
+void *run(void* arg) {
     printf("func run\n");
     int ans = 0;
     while(1) {
@@ -11,5 +11,5 @@ void run() {
         ans++;
         sleep(1);
     }
-    return;
+    //return;
 }

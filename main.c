@@ -5,7 +5,14 @@
 #include<dlfcn.h>
 #include<unistd.h>
 
-void *loop(void* arg) {
+/*void *loop(void* arg) {
+    
+    run();
+    pthread_exit(NULL);
+}*/
+
+int main() {
+    pthread_t thread;
     void* handler = dlopen("./libmylib.so", RTLD_LAZY);
     if (handler == NULL)
     {
@@ -13,14 +20,10 @@ void *loop(void* arg) {
         exit(-1);
     }
     
-    void (*run)() = (void (*)()) dlsym(handler, "run");
-    run();
-    pthread_exit(NULL);
-}
+    void *(*run)(void*) = (void *(*)(void*)) dlsym(handler, "run");
 
-int main() {
-    pthread_t thread;
-    int rc = pthread_create(&thread, NULL, loop, NULL);
+
+    int rc = pthread_create(&thread, NULL, run, NULL);
     if (rc) {
 
     }
