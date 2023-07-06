@@ -1,4 +1,4 @@
-### Test
+### Result
 
 * 使用dlopen,dlsym 不include ".h"
 * include ".h" 动态链接
