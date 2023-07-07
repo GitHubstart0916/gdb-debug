@@ -13,7 +13,7 @@
 
 int main() {
     pthread_t thread;
-    void* handler = dlopen("/home/start/ST_CPP/lib/libmylib.so", RTLD_LAZY);
+    void* handler = dlopen("./libmylib.so", RTLD_LAZY);
     if (handler == NULL)
     {
         printf("Error:%s\n", dlerror());
