@@ -25,3 +25,6 @@ add_executable(main src/main.c)
 target_link_libraries(main dl pthread)
 target_compile_options(main PUBLIC -g)
 
+add_executable(main_n_g src/main.c)
+target_link_libraries(main_n_g dl pthread)
+
