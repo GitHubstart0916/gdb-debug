@@ -4,8 +4,9 @@ project(debug)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_COMPILER "/usr/bin/clang")
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build)
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build)
 
 add_library(mylib SHARED src/mylib.c)
 
